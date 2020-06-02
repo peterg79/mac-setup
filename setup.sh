@@ -61,11 +61,9 @@ else
     git -C ~/git/mathiasbynens/dotfiles checkout -- .macos
     git -C ~/git/mathiasbynens/dotfiles pull
 fi
-patch -d ~/git/mathiasbynens/dotfiles -p0 < .macos.patch || exit
-patch -d ~/git/mathiasbynens/dotfiles -p0 < brew.sh.patch || exit
+patch -d ~/git/mathiasbynens/dotfiles -p1 < .macos.patch || exit
+patch -d ~/git/mathiasbynens/dotfiles -p1 < brew.sh.patch || exit
 
-
-exit 0
 
 source ~/git/mathiasbynens/dotfiles/.macos
 source ~/git/mathiasbynens/dotfiles/brew.sh
