@@ -1,80 +1,64 @@
 #!/bin/bash
 
-xcode-select --install
+xcode-select -p || xcode-select --install
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+type brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew doctor || exit
 
-echo 'PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
-
+export HOMEBREW_NO_AUTO_UPDATE=1
+brew tap homebrew/cask-versions
 brew tap homebrew/cask-fonts
 brew cask install font-source-code-pro
 
-mkdir ~/.bash_profile.d
-echo "export CLICOLOR=1" > ~/.bash_profile.d/clicolor
+brew install tree
+brew install vim
 
-brew install tree \
-    bash-completion \
-    vim
+git clone https://github.com/amix/vimrc.git ~/git/amix/vimrc
+sh ~/git/amix/vimrc/install_awesome_vimrc.sh
 
-echo "[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion" > ~/.bash_profile.d/bash-completion
-
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-
-brew tap homebrew/cask-versions
-
-brew cask install \
-    qlcolorcode \
-    qlstephen \
-    qlmarkdown \
-    quicklook-json \
-    qlprettypatch \
-    quicklook-csv \
-    betterzip \
-    webpquicklook \
-    suspicious-package \
-    java \
-    adoptopenjdk8 \
-
-
-echo 'export JAVA_HOME="`/usr/libexec/java_home -v 1.8`"' > ~/.bash_profile.d/java8
+brew cask install qlcolorcode
+brew cask install qlstephen
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install quicklook-csv
+brew cask install betterzip
+brew cask install webpquicklook
+brew cask install suspicious-package
+brew cask install java
+brew cask install adoptopenjdk8
 
 brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/fda3b24db9052dcbffa84e40138e355e88343dab/Casks/1password.rb
 
-brew cask install \
-    alfred \
-    appcleaner \
-    caffeine \
-    cheatsheet \
-    docker \
-    doubletwist \
-    dropbox \
-    google-chrome \
-    google-hangouts \
-    flux \
-    rectangle \
-    sublime-text \
-    superduper \
-    transmission \
-    valentina-studio \
-    vlc \
-    visual-studio-code \
-    openwebstart \
-    pycharm \
-    intellij-idea \
-    itubedownloader \
-    tresorit \
-    vivaldi \
-    fanny \
-    steam \
-    skype \
-    plex \
-    iterm2 \
-    google-backup-and-sync \
-
-brew cask install font-source-code-pro
-
+brew cask install alfred
+brew cask install appcleaner
+brew cask install caffeine
+brew cask install cheatsheet
+brew cask install docker
+brew cask install doubletwist
+brew cask install dropbox
+brew cask install google-chrome
+brew cask install google-hangouts
+brew cask install flux
+brew cask install rectangle
+brew cask install sublime-text
+brew cask install superduper
+brew cask install transmission
+brew cask install valentina-studio
+brew cask install vlc
+brew cask install visual-studio-code
+brew cask install openwebstart
+brew cask install pycharm
+brew cask install intellij-idea
+brew cask install itubedownloader
+brew cask install tresorit
+brew cask install vivaldi
+brew cask install fanny
+brew cask install steam
+brew cask install skype
+brew cask install plex
+brew cask install iterm2
+brew cask install google-backup-and-sync
 
 brew install mas
 # Slack
@@ -91,7 +75,3 @@ mas install 1147396723
 mas install 1455214828
 # Pixelmator
 mas install 407963104
-
-
-brew install node
-npm install nativefier

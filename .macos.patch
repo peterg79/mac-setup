@@ -1,6 +1,8 @@
---- .macos.orig	2020-05-31 03:32:07.000000000 -0700
-+++ .macos	2020-05-31 03:49:38.000000000 -0700
-@@ -93,9 +93,6 @@
+diff --git a/.macos b/.macos
+index e7da9cb..8710eac 100755
+--- a/.macos
++++ b/.macos
+@@ -93,9 +93,6 @@ defaults write com.apple.helpviewer DevMode -bool true
  # in the login window
  sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
  
@@ -10,7 +12,7 @@
  # Disable automatic capitalization as it’s annoying when typing code
  defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
  
-@@ -123,18 +120,15 @@
+@@ -123,18 +120,15 @@ defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
  
  # Trackpad: enable tap to click for this user and for the login screen
  defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
@@ -31,7 +33,15 @@
  # Increase sound quality for Bluetooth headphones/headsets
  defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
  
-@@ -158,16 +152,19 @@
+@@ -152,22 +146,25 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
+ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+ 
+ # Set a blazingly fast keyboard repeat rate
+-defaults write NSGlobalDomain KeyRepeat -int 1
+-defaults write NSGlobalDomain InitialKeyRepeat -int 10
++defaults write NSGlobalDomain KeyRepeat -int 2
++defaults write NSGlobalDomain InitialKeyRepeat -int 15
+ 
  # Set language and text formats
  # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
  # `Inches`, `en_GB` with `en_US`, and `true` with `false`.
@@ -56,10 +66,16 @@
  
  # Stop iTunes from responding to the keyboard media keys
  #launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
-@@ -194,25 +191,6 @@
- # Set machine sleep to 5 minutes on battery
- sudo pmset -b sleep 5
+@@ -189,29 +186,10 @@ sudo systemsetup -setrestartfreeze on
+ sudo pmset -a displaysleep 15
  
+ # Disable machine sleep while charging
+-sudo pmset -c sleep 0
++sudo pmset -c sleep 15
+ 
+ # Set machine sleep to 5 minutes on battery
+-sudo pmset -b sleep 5
+-
 -# Set standby delay to 24 hours (default is 1 hour)
 -sudo pmset -a standbydelay 86400
 -
@@ -78,11 +94,11 @@
 -sudo touch /private/var/vm/sleepimage
 -# …and make sure it can’t be rewritten
 -sudo chflags uchg /private/var/vm/sleepimage
--
++sudo pmset -b sleep 15
+ 
  ###############################################################################
  # Screen                                                                      #
- ###############################################################################
-@@ -222,7 +200,8 @@
+@@ -222,7 +200,8 @@ defaults write com.apple.screensaver askForPassword -int 1
  defaults write com.apple.screensaver askForPasswordDelay -int 0
  
  # Save screenshots to the desktop
@@ -92,7 +108,7 @@
  
  # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
  defaults write com.apple.screencapture type -string "png"
-@@ -250,7 +229,7 @@
+@@ -250,7 +229,7 @@ defaults write com.apple.finder DisableAllAnimations -bool true
  # Set Desktop as the default location for new Finder windows
  # For other paths, use `PfLo` and `file:///full/path/here/`
  defaults write com.apple.finder NewWindowTarget -string "PfDe"
@@ -101,7 +117,7 @@
  
  # Show icons for hard drives, servers, and removable media on the desktop
  defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-@@ -341,10 +320,6 @@
+@@ -341,10 +320,6 @@ chflags nohidden ~/Library && xattr -d com.apple.FinderInfo ~/Library
  # Show the /Volumes folder
  sudo chflags nohidden /Volumes
  
@@ -112,7 +128,7 @@
  # Expand the following File Info panes:
  # “General”, “Open with”, and “Sharing & Permissions”
  defaults write com.apple.finder FXInfoPanesExpanded -dict \
-@@ -356,6 +331,9 @@
+@@ -356,6 +331,9 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
  # Dock, Dashboard, and hot corners                                            #
  ###############################################################################
  
@@ -122,7 +138,7 @@
  # Enable highlight hover effect for the grid view of a stack (Dock)
  defaults write com.apple.dock mouse-over-hilite-stack -bool true
  
-@@ -404,10 +382,10 @@
+@@ -404,10 +382,10 @@ defaults write com.apple.dock mru-spaces -bool false
  # Remove the auto-hiding Dock delay
  defaults write com.apple.dock autohide-delay -float 0
  # Remove the animation when hiding/showing the Dock
@@ -136,7 +152,7 @@
  
  # Make Dock icons of hidden applications translucent
  defaults write com.apple.dock showhidden -bool true
-@@ -421,10 +399,6 @@
+@@ -421,10 +399,6 @@ defaults write com.apple.dock show-recents -bool false
  # Reset Launchpad, but keep the desktop wallpaper intact
  find "${HOME}/Library/Application Support/Dock" -name "*-*.db" -maxdepth 1 -delete
  
@@ -147,7 +163,7 @@
  # Add a spacer to the left side of the Dock (where the applications are)
  #defaults write com.apple.dock persistent-apps -array-add '{tile-data={}; tile-type="spacer-tile";}'
  # Add a spacer to the right side of the Dock (where the Trash is)
-@@ -446,11 +420,11 @@
+@@ -446,11 +420,11 @@ sudo ln -sf "/Applications/Xcode.app/Contents/Developer/Applications/Simulator (
  # Top left screen corner → Mission Control
  defaults write com.apple.dock wvous-tl-corner -int 2
  defaults write com.apple.dock wvous-tl-modifier -int 0
@@ -163,7 +179,7 @@
  defaults write com.apple.dock wvous-bl-modifier -int 0
  
  ###############################################################################
-@@ -622,53 +596,6 @@
+@@ -622,53 +596,6 @@ sudo mdutil -E / > /dev/null
  # Only use UTF-8 in Terminal.app
  defaults write com.apple.terminal StringEncodings -array 4
  
@@ -217,7 +233,7 @@
  # Enable “focus follows mouse” for Terminal.app and all X11 apps
  # i.e. hover over a window and start typing in it without clicking first
  #defaults write com.apple.terminal FocusFollowsMouse -bool true
-@@ -681,9 +608,6 @@
+@@ -681,9 +608,6 @@ defaults write com.apple.terminal SecureKeyboardEntry -bool true
  # Disable the annoying line marks
  defaults write com.apple.Terminal ShowLineMarks -int 0
  
@@ -227,7 +243,7 @@
  # Don’t display the annoying prompt when quitting iTerm
  defaults write com.googlecode.iterm2 PromptOnQuit -bool false
  
-@@ -694,9 +618,6 @@
+@@ -694,9 +618,6 @@ defaults write com.googlecode.iterm2 PromptOnQuit -bool false
  # Prevent Time Machine from prompting to use new hard drives as backup volume
  defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
  
@@ -237,10 +253,11 @@
  ###############################################################################
  # Activity Monitor                                                            #
  ###############################################################################
-@@ -779,19 +700,6 @@
+@@ -778,19 +699,6 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool true
+ # Prevent Photos from opening automatically when devices are plugged in
  defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
  
- ###############################################################################
+-###############################################################################
 -# Messages                                                                    #
 -###############################################################################
 -
@@ -253,28 +270,28 @@
 -# Disable continuous spell checking
 -defaults write com.apple.messageshelper.MessageController SOInputLineSettings -dict-add "continuousSpellCheckingEnabled" -bool false
 -
--###############################################################################
+ ###############################################################################
  # Google Chrome & Google Chrome Canary                                        #
  ###############################################################################
- 
-@@ -812,13 +720,6 @@
+@@ -811,13 +719,6 @@ defaults write com.google.Chrome.canary DisablePrintPreview -bool true
+ defaults write com.google.Chrome PMPrintingExpandedStateForPrint2 -bool true
  defaults write com.google.Chrome.canary PMPrintingExpandedStateForPrint2 -bool true
  
- ###############################################################################
+-###############################################################################
 -# GPGMail 2                                                                   #
 -###############################################################################
 -
 -# Disable signing emails by default
 -defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault -bool false
 -
--###############################################################################
+ ###############################################################################
  # Opera & Opera Developer                                                     #
  ###############################################################################
- 
-@@ -837,87 +738,6 @@
+@@ -836,87 +737,6 @@ defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
+ # Don’t show the preferences window on next start
  defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
  
- ###############################################################################
+-###############################################################################
 -# Sublime Text                                                                #
 -###############################################################################
 -
@@ -355,11 +372,10 @@
 -# Bypass the annoyingly slow t.co URL shortener
 -defaults write com.tapbots.TweetbotMac OpenURLsDirectly -bool true
 -
--###############################################################################
+ ###############################################################################
  # Kill affected applications                                                  #
  ###############################################################################
- 
-@@ -936,12 +756,8 @@
+@@ -936,12 +756,8 @@ for app in "Activity Monitor" \
  	"Photos" \
  	"Safari" \
  	"SizeUp" \
