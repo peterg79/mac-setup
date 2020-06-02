@@ -39,3 +39,5 @@ brew uninstall openssh
 hash -r
 source more-tools.sh
 source nativefier.sh
+
+curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
