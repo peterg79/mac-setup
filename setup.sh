@@ -51,7 +51,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 brew install git
 brew list bash-completion && brew uninstall bash-completion
 brew install bash-completion@2
-update_rc'[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"'
+update_rc '[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"'
 cp -a .mac-prompt.bash ~/.mac-prompt.bash
 update_rc '[[ -r "~/.mac-prompt.bash" ]] && . "~/.mac-prompt.bash"'
 
