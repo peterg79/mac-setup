@@ -26,7 +26,7 @@ else
     git -C ${ICONS_LOCATION} pull
 fi
 
-GLOBAL_OPTIONS="--fast-quit --single-instance --darwin-dark-mode-support --internal-urls '.*?'"
+GLOBAL_OPTIONS="--fast-quit --single-instance --darwin-dark-mode-support --internal-urls .\*?"
 
 
 nativefier ${GLOBAL_OPTIONS} --name "Pluralsight Flow" --icon ${ICONS_LOCATION}/files/pluralsight.png http://yo/flowdemo
