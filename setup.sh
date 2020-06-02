@@ -55,7 +55,7 @@ brew list bash-completion && brew uninstall bash-completion
 brew install bash-completion@2
 update_rc '[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"'
 cp -a .mac-prompt.bash ~/.mac-prompt.bash
-update_rc '[[ -r "~/.mac-prompt.bash" ]] && . "~/.mac-prompt.bash"'
+update_rc '[[ -r ~/.mac-prompt.bash ]] && . ~/.mac-prompt.bash'
 
 if [ ! -e ~/git/mathiasbynens/dotfiles/.git ]; then
     git clone https://github.com/mathiasbynens/dotfiles.git ~/git/mathiasbynens/dotfiles
@@ -73,3 +73,5 @@ brew uninstall openssh
 hash -r
 source more-tools.sh
 source nativefier.sh
+
+curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
