@@ -38,6 +38,7 @@ brew cask install docker
 brew cask install doubletwist
 brew cask install dropbox
 brew cask install google-chrome
+brew cask install google-chrome-canary
 brew cask install google-hangouts
 brew cask install flux
 brew cask install rectangle
