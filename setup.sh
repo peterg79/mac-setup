@@ -19,6 +19,7 @@ function update_rc {
     # alias and function definitions, shell options, and prompt settings
     line=$1
     file=~/.bashrc
+    if [ ! -e $file ]; then touch $file; fi
     grep -qxF "$line" $file || echo $line >> $file
 }
 
@@ -27,6 +28,7 @@ function update_profile {
     # Put environment variable definitions here.
     line=$1
     file=~/.bash_profile
+    if [ ! -e $file ]; then touch $file; fi
     grep -qxF "$line" $file || echo $line >> $file
 }
 
@@ -58,7 +60,7 @@ update_rc '[[ -r "~/.mac-prompt.bash" ]] && . "~/.mac-prompt.bash"'
 if [ ! -e ~/git/mathiasbynens/dotfiles/.git ]; then
     git clone https://github.com/mathiasbynens/dotfiles.git ~/git/mathiasbynens/dotfiles
 else
-    git -C ~/git/mathiasbynens/dotfiles checkout -- .macos
+    git -C ~/git/mathiasbynens/dotfiles checkout -- .macos brew.sh
     git -C ~/git/mathiasbynens/dotfiles pull
 fi
 patch -d ~/git/mathiasbynens/dotfiles -p1 < .macos.patch || exit
