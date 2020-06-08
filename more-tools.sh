@@ -30,7 +30,6 @@ brew cask install adoptopenjdk8
 
 brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/fda3b24db9052dcbffa84e40138e355e88343dab/Casks/1password.rb
 
-brew cask install alfred
 brew cask install appcleaner
 brew cask install caffeine
 brew cask install cheatsheet
@@ -60,6 +59,7 @@ brew cask install skype
 brew cask install plex
 brew cask install iterm2
 brew cask install google-backup-and-sync
+brew cask install omnidisksweeper
 
 brew install mas
 # Slack
