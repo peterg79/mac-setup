@@ -39,6 +39,7 @@ nativefier ${GLOBAL_OPTIONS} --name Workday --icon ${ICONS_LOCATION}/files/workd
 nativefier ${GLOBAL_OPTIONS} --name Nest --icon ${ICONS_LOCATION}/files/nest3.png https://home.nest.com/
 nativefier ${GLOBAL_OPTIONS} --name "Google Meet" https://meet.google.com/
 nativefier ${GLOBAL_OPTIONS} --name "Google Drive" https://drive.google.com/
+nativefier ${GLOBAL_OPTIONS} --name KidsNote --icon ${ICONS_LOCATION}/files/kidsnote.png https://www.kidsnote.com/home/
 
 find . -name '*.app' -depth 2 -type d -print0 | while read -d $'\0' app
 do
