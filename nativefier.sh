@@ -40,6 +40,7 @@ nativefier ${GLOBAL_OPTIONS} --name Nest --icon ${ICONS_LOCATION}/files/nest3.pn
 nativefier ${GLOBAL_OPTIONS} --name "Google Meet" https://meet.google.com/
 nativefier ${GLOBAL_OPTIONS} --name "Google Drive" https://drive.google.com/
 nativefier ${GLOBAL_OPTIONS} --name KidsNote --icon ${ICONS_LOCATION}/files/kidsnote.png https://www.kidsnote.com/home/
+nativefier ${GLOBAL_OPTIONS} --name "Google Maps" https://maps.google.com/
 
 find . -name '*.app' -depth 2 -type d -print0 | while read -d $'\0' app
 do
