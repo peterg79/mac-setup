@@ -40,12 +40,12 @@ nativefier ${GLOBAL_OPTIONS} --name Nest --icon ${ICONS_LOCATION}/files/nest3.pn
 nativefier ${GLOBAL_OPTIONS} --name "Google Meet" https://meet.google.com/
 nativefier ${GLOBAL_OPTIONS} --name "Google Drive" https://drive.google.com/
 nativefier ${GLOBAL_OPTIONS} --name KidsNote --icon ${ICONS_LOCATION}/files/kidsnote.png https://www.kidsnote.com/home/
-nativefier ${GLOBAL_OPTIONS} --name "Google Maps" https://maps.google.com/
+nativefier ${GLOBAL_OPTIONS} --name "Google Maps" --icon ${ICONS_LOCATION}/files/google-maps.png https://maps.google.com/
 
 find . -name '*.app' -depth 2 -type d -print0 | while read -d $'\0' app
 do
     appname=$(basename "$app")
     echo "'$appname'"
-    trash "~/Applications/$appname"
+    [[ -e "~/Applications/$appname" ]] && trash "~/Applications/$appname"
     cp -a "$app" ~/Applications/
 done
