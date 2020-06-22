@@ -60,6 +60,7 @@ brew cask install plex
 brew cask install iterm2
 brew cask install google-backup-and-sync
 brew cask install omnidisksweeper
+brew cask install kindle
 
 brew install mas
 # Slack
