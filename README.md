@@ -5,6 +5,9 @@
 1. Make changes to taylor it to your needs
 1. run `./setup.sh` to get everything installed
 
+## Do manual installations / adjustments
+1. install [Live Home 3d](http://belightsoft.s3.amazonaws.com/basket/LiveHome3DPro.dmg)
+
 ## references
 https://sourabhbajaj.com/mac-setup/
 https://github.com/mathiasbynens/dotfiles
