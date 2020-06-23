@@ -64,6 +64,12 @@ brew cask install calibre
 brew cask install kindle
 
 brew install mas
+
+# find ID using this command:
+# mas search 'Evernote Web Clipper'
+
+# Keynote
+mas install 409183694
 # Slack
 mas install 803453959
 # Parcel
