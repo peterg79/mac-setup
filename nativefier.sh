@@ -2,20 +2,22 @@
 
 function install {
     pkgmanager=$1
-    pkg=$2
-    $pkgmanager list $pkg || $pkgmanager install $pkg
+    pkg=$(echo $2 | tr '[:upper:]' '[:lower:]')
+    install_options=$3
+    [[ $pkgmanager = brew ]] && [[ -e /usr/local/Cellar/$pkg ]] && return
+    $pkgmanager list $install_options $pkg || $pkgmanager install $install_options $pkg
 }
 
 
 # install nativefier
-brew update
+[[ $HOMEBREW_NO_AUTO_UPDATE -ne 1 ]] && brew update
 export HOMEBREW_NO_AUTO_UPDATE=1
 install brew trash
 install brew ImageMagick
 #install "brew cask" xquartz
 #install "brew cask" wine-stable
 install brew node
-install npm "-g nativefier"
+install npm nativefier -g
 
 ICONS_LOCATION=~/git/peterg79/nativefier-icons
 # update nativefier icons
@@ -26,26 +28,55 @@ else
     git -C ${ICONS_LOCATION} pull
 fi
 
-GLOBAL_OPTIONS="--fast-quit --single-instance --darwin-dark-mode-support --internal-urls .\*?"
+#GLOBAL_OPTIONS="--counter --bounce --show-menu-bar --fast-quit --single-instance --darwin-dark-mode-support --internal-urls .\*?"
+GLOBAL_OPTIONS="--counter --bounce --show-menu-bar --fast-quit --single-instance --darwin-dark-mode-support --internal-urls google.com|okta.com"
 
+function create_app {
+    name=$1
+    url=$2
+    icon=$3
+    user_agent=$4
+    global_options=${GLOBAL_OPTIONS}
+    target_dir=apps
+    mkdir -p $target_dir
+    if [ "$user_agent" ]; then
+        nativefier $global_options $options \
+            --user-agent "$user_agent" \
+            --name "$name" \
+            --icon "${ICONS_LOCATION}/files/$icon" \
+            "$url" \
+            "$target_dir"
+    else
+        nativefier $global_options $options \
+            --name "$name" \
+            --icon "${ICONS_LOCATION}/files/$icon" \
+            "$url" \
+            "$target_dir"
+    fi
+}
 
-nativefier ${GLOBAL_OPTIONS} --name "Pluralsight Flow" --icon ${ICONS_LOCATION}/files/pluralsight.png http://yo/flowdemo
-nativefier ${GLOBAL_OPTIONS} --name Evernote --icon ${ICONS_LOCATION}/files/evernote.png https://www.evernote.com/
-nativefier ${GLOBAL_OPTIONS} --name "Google Mail" --icon ${ICONS_LOCATION}/files/gmail.png https://mail.google.com/
-nativefier ${GLOBAL_OPTIONS} --name "Google Calendar" https://calendar.google.com/
-nativefier ${GLOBAL_OPTIONS} --name Facebook https://facebook.com/
-nativefier ${GLOBAL_OPTIONS} --name Messenger https://messenger.com/
-nativefier ${GLOBAL_OPTIONS} --name Workday --icon ${ICONS_LOCATION}/files/workday.png https://wd5.myworkday.com/oath
-nativefier ${GLOBAL_OPTIONS} --name Nest --icon ${ICONS_LOCATION}/files/nest3.png https://home.nest.com/
-nativefier ${GLOBAL_OPTIONS} --name "Google Meet" https://meet.google.com/
-nativefier ${GLOBAL_OPTIONS} --name "Google Drive" https://drive.google.com/
-nativefier ${GLOBAL_OPTIONS} --name KidsNote --icon ${ICONS_LOCATION}/files/kidsnote.png https://www.kidsnote.com/home/
-nativefier ${GLOBAL_OPTIONS} --name "Google Maps" --icon ${ICONS_LOCATION}/files/google-maps.png https://maps.google.com/
+create_app "Pluralsight Flow" http://yo/flowdemo pluralsight.png
+create_app Evernote https://www.evernote.com/ evernote.png
+create_app "Google Mail" https://mail.google.com/ gmail.png
+create_app "Google Calendar" https://calendar.google.com/ google-calendar.png
+create_app "Google Meet" https://meet.google.com/ google-meet.png
+create_app "Google Drive" https://drive.google.com/ google-drive.png
+# sometimes we need to lie about user agent: https://github.com/jiahaog/nativefier/issues/831
+create_app "Google Maps" https://maps.google.com/ google-maps.png "Mozilla/5.0 (Windows NT 10.0; rv:74.0) Gecko/20100101 Firefox/74.0"
+create_app Facebook https://facebook.com/ facebook.png
+create_app Messenger https://messenger.com/ messenger.png
+create_app Workday https://wd5.myworkday.com/oath workday.png
+create_app Nest https://home.nest.com/ nest3.png
+create_app KidsNote https://www.kidsnote.com/home/ kidsnote.png
 
-find . -name '*.app' -depth 2 -type d -print0 | while read -d $'\0' app
+# DRM-protected content won't play: https://github.com/jiahaog/nativefier/issues/435
+# create_app Netflix https://www.netflix.com/ netflix.png
+
+APP_LOCATION=~/Applications
+find apps -name '*.app' -depth 2 -type d -print0 | while read -d $'\0' app
 do
     appname=$(basename "$app")
     echo "'$appname'"
-    [[ -e "~/Applications/$appname" ]] && trash "~/Applications/$appname"
-    cp -a "$app" ~/Applications/
+    [[ -e ${APP_LOCATION}/$appname ]] && trash "${APP_LOCATION}/$appname"
+    cp -a "$app" "${APP_LOCATION}/"
 done

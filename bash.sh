@@ -1,25 +1,10 @@
 #!/bin/bash
 
+source functions.sh
+
 # ref: https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile
 rm -f ~/.bashrc
 rm -f ~/.bash_profile
-function update_rc {
-    # This is the place to put stuff that applies only to bash itself, such as
-    # alias and function definitions, shell options, and prompt settings
-    line=$1
-    file=~/.bashrc
-    if [ ! -e $file ]; then touch $file; fi
-    grep -qxF "$line" $file || echo $line >> $file
-}
-
-function update_profile {
-    # Applies to the whole session.
-    # Put environment variable definitions here.
-    line=$1
-    file=~/.bash_profile
-    if [ ! -e $file ]; then touch $file; fi
-    grep -qxF "$line" $file || echo $line >> $file
-}
 
 update_profile "echo running ~/.bash_profile"
 update_profile "case \"\$-\" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac"

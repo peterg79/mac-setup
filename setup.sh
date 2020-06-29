@@ -17,9 +17,11 @@ brew doctor || exit
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 
-brew install git
-brew list bash-completion && brew uninstall bash-completion
-brew install bash-completion@2
+[[ -e /usr/local/bin/git ]] || brew install git
+if [ ! -e /usr/local/Cellar/bash-completion@2 ]; then
+    [[ -e /usr/local/Cellar/bash-completion ]] && brew uninstall bash-completion
+    brew install bash-completion@2
+fi
 
 source bash.sh
 
@@ -37,6 +39,7 @@ source ~/git/mathiasbynens/dotfiles/.macos
 source ~/git/mathiasbynens/dotfiles/brew.sh
 brew uninstall openssh
 hash -r
+source python.sh
 source more-tools.sh
 source nativefier.sh
 
