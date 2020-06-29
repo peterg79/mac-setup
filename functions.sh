@@ -17,3 +17,11 @@ function update_profile {
     if [ ! -e $file ]; then touch $file; fi
     grep -qxF "$line" $file || echo $line >> $file
 }
+
+function pkg_install {
+     pkgmanager=$1
+     pkg=$(echo $2 | tr '[:upper:]' '[:lower:]')
+     install_options=$3
+     [[ $pkgmanager = brew ]] && [[ -e /usr/local/Cellar/$pkg ]] && return
+     $pkgmanager list $install_options $pkg || $pkgmanager install $install_options $pkg
+ }

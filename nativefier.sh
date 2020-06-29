@@ -1,23 +1,16 @@
 #!/bin/bash
 
-function install {
-    pkgmanager=$1
-    pkg=$(echo $2 | tr '[:upper:]' '[:lower:]')
-    install_options=$3
-    [[ $pkgmanager = brew ]] && [[ -e /usr/local/Cellar/$pkg ]] && return
-    $pkgmanager list $install_options $pkg || $pkgmanager install $install_options $pkg
-}
-
+source functions.sh
 
 # install nativefier
 [[ $HOMEBREW_NO_AUTO_UPDATE -ne 1 ]] && brew update
 export HOMEBREW_NO_AUTO_UPDATE=1
-install brew trash
-install brew ImageMagick
-#install "brew cask" xquartz
-#install "brew cask" wine-stable
-install brew node
-install npm nativefier -g
+pkg_install brew trash
+pkg_install brew ImageMagick
+#pkg_install "brew cask" xquartz
+#pkg_install "brew cask" wine-stable
+pkg_install brew node
+pkg_install npm nativefier -g
 
 ICONS_LOCATION=~/git/peterg79/nativefier-icons
 # update nativefier icons
