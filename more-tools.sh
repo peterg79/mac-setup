@@ -27,6 +27,14 @@ brew cask install webpquicklook
 brew cask install suspicious-package
 brew cask install java
 brew cask install adoptopenjdk8
+brew install jenv
+
+mkdir -p ~/.jenv/versions
+for dir in `ls -1 /Library/Java/JavaVirtualMachines/`; do
+    jenv add /Library/Java/JavaVirtualMachines/$dir/Contents/Home
+done
+jenv enable-plugin export
+brew install jetty jetty-runner
 
 brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/fda3b24db9052dcbffa84e40138e355e88343dab/Casks/1password.rb
 
