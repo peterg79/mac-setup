@@ -22,7 +22,7 @@ else
 fi
 
 #GLOBAL_OPTIONS="--counter --bounce --show-menu-bar --fast-quit --single-instance --darwin-dark-mode-support --internal-urls .\*?"
-GLOBAL_OPTIONS="--counter --bounce --show-menu-bar --fast-quit --single-instance --darwin-dark-mode-support --internal-urls google.com|okta.com"
+GLOBAL_OPTIONS="--counter --bounce --show-menu-bar --fast-quit --single-instance --darwin-dark-mode-support --internal-urls google.com|okta.com|nest.com"
 
 function create_app {
     name=$1
@@ -59,8 +59,9 @@ create_app "Google Maps" https://maps.google.com/ google-maps.png "Mozilla/5.0 (
 create_app Facebook https://facebook.com/ facebook.png
 create_app Messenger https://messenger.com/ messenger.png
 create_app Workday https://wd5.myworkday.com/oath workday.png
-create_app Nest https://home.nest.com/ nest3.png
+create_app Nest https://home.nest.com/ nest3.png "Mozilla/5.0 (Windows NT 10.0; rv:74.0) Gecko/20100101 Firefox/74.0"
 create_app KidsNote https://www.kidsnote.com/home/ kidsnote.png
+create_app "Tiller Money" https://docs.google.com/spreadsheets/d/1uEMgWbnQN9AaBRr8Fkc86FPTj0ZSoCaawBtVhRZQBVE tiller-money.png "Mozilla/5.0 (Windows NT 10.0; rv:74.0) Gecko/20100101 Firefox/74.0"
 
 # DRM-protected content won't play: https://github.com/jiahaog/nativefier/issues/435
 # create_app Netflix https://www.netflix.com/ netflix.png
