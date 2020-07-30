@@ -59,8 +59,6 @@ function create_app {
     echo "$NAT_CMD"
     eval "$NAT_CMD"
 }
-create_app Workday https://wd5.myworkday.com/oath workday.png
-exit 0
 
 create_app -n "Pluralsight Flow" -u http://yo/flowdemo -i pluralsight.png -d "google.com|okta.com|corp-apps.aws.oath.cloud"
 create_app -n Evernote -u https://www.evernote.com/ -i evernote.png -d evernote.com
