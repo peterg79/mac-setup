@@ -47,6 +47,8 @@ function create_app {
             "$target_dir"
     fi
 }
+create_app Workday https://wd5.myworkday.com/oath workday.png
+exit 0
 
 create_app "Pluralsight Flow" http://yo/flowdemo pluralsight.png
 create_app Evernote https://www.evernote.com/ evernote.png
