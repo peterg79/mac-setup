@@ -35,6 +35,7 @@ for dir in `ls -1 /Library/Java/JavaVirtualMachines/`; do
 done
 jenv enable-plugin export
 brew install jetty jetty-runner
+brew install maven
 
 brew cask install https://raw.githubusercontent.com/caskroom/homebrew-cask/fda3b24db9052dcbffa84e40138e355e88343dab/Casks/1password.rb
 
