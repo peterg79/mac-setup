@@ -12,6 +12,7 @@ brew cask install font-source-code-pro
 
 brew install tree
 brew install vim
+brew install gawk
 
 git clone https://github.com/amix/vimrc.git ~/git/amix/vimrc
 sh ~/git/amix/vimrc/install_awesome_vimrc.sh
@@ -70,12 +71,17 @@ brew cask install google-backup-and-sync
 brew cask install omnidisksweeper
 brew cask install calibre
 brew cask install kindle
+brew cask install box-drive
 
 brew install mas
 
 # find ID using this command:
 # mas search 'Evernote Web Clipper'
 
+# Numbers
+mas install 409203825
+# Pages
+mas install 409201541
 # Keynote
 mas install 409183694
 # Slack
