@@ -54,6 +54,7 @@ brew cask install flux
 brew cask install rectangle
 brew cask install sublime-text
 brew cask install superduper
+brew cask install carbon-copy-cloner
 brew cask install transmission
 brew cask install valentina-studio
 brew cask install vlc
