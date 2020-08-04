@@ -13,7 +13,8 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 xcode-select -p || xcode-select --install
 
 type brew || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-brew doctor || exit
+# work around the pyenv config issue (https://github.com/pyenv/pyenv/issues/106)
+PATH=${PATH//$(pyenv root)\/shims:/} brew doctor || exit
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 
