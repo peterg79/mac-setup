@@ -2,6 +2,13 @@
 
 # based on the following guides:
 # https://medium.com/@briantorresgil/definitive-guide-to-python-on-mac-osx-65acd8d969d0
+# more stuff:
+# https://github.com/wemake-services/wemake-python-styleguide
+# poetry: https://poetry.eustace.io/docs
+# pyenv: https://github.com/pyenv/pyenv
+# pipx: https://pipxproject.github.io/pipx/
+# Python Code Quality: Tools & Best Practices:
+# https://realpython.com/python-code-quality/
 
 source functions.sh
 
@@ -23,3 +30,18 @@ pkg_install brew xz
 pkg_install brew zlib
 
 update_profile 'if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi'
+
+# raspbian has this version
+pyenv install -s 3.7.3
+pyenv global 3.7.3
+
+# pipx
+update_profile 'export PATH="~/.local/bin:$PATH"'
+
+# poetry
+curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python
+update_profile 'export PATH="$HOME/.poetry/bin:$PATH"'
+update_profile 'export PIP_REQUIRE_VIRTUALENV=true'
+source ~/.bash_profile
+poetry config virtualenvs.in-project true
+python -c "import this"
