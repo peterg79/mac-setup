@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function exit_error {
+    echo "$@"
+    exit 1
+}
+
+[[ -d /opt/cisco/anyconnect/profile ]] || exit_error "AnyConnect is not installed. Exiting."
+
+default_profile=$(ls -1t /opt/cisco/anyconnect/profile/ | head -n1)
+vpn_hostname=$(xmlstarlet sel -t -m '/_:AnyConnectProfile/_:ServerList[1]/_:HostEntry/_:HostName/text()' -c . /opt/cisco/anyconnect/profile/$default_profile)
+
+if [ -e ~/.cisco-auth ]; then
+    exec sudo /opt/cisco/anyconnect/bin/vpn connect $vpn_hostname -s < ~/.cisco-auth
+else
+    exec sudo /opt/cisco/anyconnect/bin/vpn connect $vpn_hostname
+fi

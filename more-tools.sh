@@ -13,6 +13,8 @@ brew cask install font-source-code-pro
 brew install tree
 brew install vim
 brew install gawk
+brew install xmlstarlet
+sudo cp vpn-connect /usr/local/bin/
 
 git clone https://github.com/amix/vimrc.git ~/git/amix/vimrc
 sh ~/git/amix/vimrc/install_awesome_vimrc.sh
