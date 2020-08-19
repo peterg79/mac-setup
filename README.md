@@ -5,6 +5,12 @@
 1. Make changes to taylor it to your needs
 1. run `./setup.sh` to get everything installed
 
+## User specific configuration
+
+1. `git config push.default current`
+1. `git config --global user.name "Your Name"`
+1. `git config --global user.email you@example.com`
+
 ## Do manual installations / adjustments
 1. install [Live Home 3d](http://belightsoft.s3.amazonaws.com/basket/LiveHome3DPro.dmg)
 
