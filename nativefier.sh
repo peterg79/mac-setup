@@ -1,5 +1,7 @@
 #!/bin/bash
 
+APPS_TO_INSTALL=$1
+
 source functions.sh
 
 # install nativefier
@@ -56,9 +58,13 @@ function create_app {
     [[ $internal_urls ]] && NAT_CMD="$NAT_CMD --internal-urls \"$internal_urls\""
     NAT_CMD="$NAT_CMD \"$url\" \"$target_dir\""
 
-    echo "$NAT_CMD"
-    eval "$NAT_CMD"
+    if [ -z "$APPS_TO_INSTALL" -o "$APPS_TO_INSTALL" = "$name" -o "$APPS_TO_INSTALL" = "all" ]; then
+        echo "$NAT_CMD"
+        eval "$NAT_CMD"
+    fi
 }
+
+
 
 create_app -n "Pluralsight Flow" -u http://yo/flowdemo -i pluralsight.png -d "google.com|okta.com|corp-apps.aws.oath.cloud"
 create_app -n Evernote -u https://www.evernote.com/ -i evernote.png -d evernote.com
@@ -69,7 +75,7 @@ create_app -n "Google Drive" -u https://drive.google.com/ -i google-drive.png -d
 create_app -n "Google Maps" -u https://maps.google.com/ -i google-maps.png -d google.com
 create_app -n Facebook -u https://facebook.com/ -i facebook.png -d facebook.com
 create_app -n Messenger -u https://messenger.com/ -i messenger.png -d messenger.com
-create_app -n Workday -u https://wd5.myworkday.com/oath -i workday.png -d "google.com|okta.com|myworkday.com"
+create_app -n Workday -u https://wd5.myworkday.com/vzbuilders -i workday.png -d "google.com|okta.com|myworkday.com"
 create_app -n Nest -u https://home.nest.com/ -i nest3.png -d "google.com|nest.com"
 create_app -n KidsNote -u https://www.kidsnote.com/home/ -i kidsnote.png -d kidsnote.com
 create_app -n "Tiller Money" -u https://docs.google.com/spreadsheets/d/1uEMgWbnQN9AaBRr8Fkc86FPTj0ZSoCaawBtVhRZQBVE -i tiller-money.png -d google.com
