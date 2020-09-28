@@ -77,6 +77,7 @@ brew cask install omnidisksweeper
 brew cask install calibre
 brew cask install kindle
 brew cask install box-drive
+brew cask install signal
 
 brew install mas
 
