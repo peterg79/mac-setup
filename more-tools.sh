@@ -78,6 +78,7 @@ brew cask install calibre
 brew cask install kindle
 brew cask install box-drive
 brew cask install signal
+brew cask install coconutbattery
 
 brew install mas
 
