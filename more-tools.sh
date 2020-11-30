@@ -105,3 +105,5 @@ mas install 1147396723
 mas install 1455214828
 # Pixelmator
 mas install 407963104
+# Whiteboard  Easy and Smart
+mas install 496465537
