@@ -105,3 +105,5 @@ mas install 1147396723
 mas install 1455214828
 # Pixelmator
 mas install 407963104
+# Facebook Messenger
+mas install 1480068668
