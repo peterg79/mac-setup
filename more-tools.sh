@@ -79,6 +79,7 @@ brew cask install kindle
 brew cask install box-drive
 brew cask install signal
 brew cask install coconutbattery
+brew cask install freac
 
 brew install mas
 
