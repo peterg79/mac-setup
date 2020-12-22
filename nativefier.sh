@@ -74,7 +74,6 @@ create_app -n "Google Meet" -u https://meet.google.com/ -i google-meet.png -d go
 create_app -n "Google Drive" -u https://drive.google.com/ -i google-drive.png -d google.com
 create_app -n "Google Maps" -u https://maps.google.com/ -i google-maps.png -d google.com
 create_app -n Facebook -u https://facebook.com/ -i facebook.png -d facebook.com
-create_app -n Messenger -u https://messenger.com/ -i messenger.png -d messenger.com
 create_app -n Workday -u https://wd5.myworkday.com/vzbuilders -i workday.png -d "google.com|okta.com|myworkday.com"
 create_app -n Nest -u https://home.nest.com/ -i nest3.png -d "google.com|nest.com"
 create_app -n KidsNote -u https://www.kidsnote.com/home/ -i kidsnote.png -d kidsnote.com

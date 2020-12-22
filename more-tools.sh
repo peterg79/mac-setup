@@ -79,6 +79,7 @@ brew cask install kindle
 brew cask install box-drive
 brew cask install signal
 brew cask install coconutbattery
+brew cask install freac
 
 brew install mas
 
@@ -107,3 +108,5 @@ mas install 1455214828
 mas install 407963104
 # Whiteboard  Easy and Smart
 mas install 496465537
+# Facebook Messenger
+mas install 1480068668
