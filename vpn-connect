@@ -12,7 +12,7 @@ vpn_hostname=$(xmlstarlet sel -t -m '/_:AnyConnectProfile/_:ServerList[1]/_:Host
 
 echo "Connecting to $vpn_hostname"
 if [ -e ~/.cisco-auth ]; then
-    exec sudo /opt/cisco/anyconnect/bin/vpn connect $vpn_hostname -s < ~/.cisco-auth
+    exec sudo /opt/cisco/anyconnect/bin/vpn connect "$vpn_hostname" -s < ~/.cisco-auth
 else
-    exec sudo /opt/cisco/anyconnect/bin/vpn connect $vpn_hostname
+    exec sudo /opt/cisco/anyconnect/bin/vpn connect "$vpn_hostname"
 fi
