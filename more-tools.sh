@@ -80,6 +80,7 @@ brew cask install box-drive
 brew cask install signal
 brew cask install coconutbattery
 brew cask install freac
+brew cask install nextcloud
 
 brew install mas
 
