@@ -2,23 +2,21 @@
 
 APPS_TO_INSTALL=$1
 
-source functions.sh
+source globals.sh
 
 # install nativefier
 [[ $HOMEBREW_NO_AUTO_UPDATE -ne 1 ]] && brew update
 export HOMEBREW_NO_AUTO_UPDATE=1
 pkg_install brew trash
 pkg_install brew ImageMagick
-#pkg_install "brew cask" xquartz
-#pkg_install "brew cask" wine-stable
 pkg_install brew node
 pkg_install npm nativefier -g
 
+ICONS_REPOSITORY=https://github.com/peterg79/nativefier-icons.git
 ICONS_LOCATION=~/git/peterg79/nativefier-icons
 # update nativefier icons
 if [ ! -e ~/git/peterg79/nativefier-icons/.git ]; then
-    git clone git@github.com:peterg79/nativefier-icons.git ${ICONS_LOCATION}
-    #git clone https://github.com/peterg79/nativefier-icons.git ${ICONS_LOCATION}
+    git clone ${ICONS_REPOSITORY} ${ICONS_LOCATION}
 else
     git -C ${ICONS_LOCATION} pull
 fi
@@ -61,12 +59,13 @@ function create_app {
     if [ -z "$APPS_TO_INSTALL" -o "$APPS_TO_INSTALL" = "$name" -o "$APPS_TO_INSTALL" = "all" ]; then
         echo "$NAT_CMD"
         eval "$NAT_CMD"
+        /usr/libexec/PlistBuddy -c "Add :NSBluetoothAlwaysUsageDescription string Our app does not request this permission or utilize this functionality but it is included in our info.plist since our app utilizes the react-native-permissions library, which references this permission in its code." "apps/$name-darwin-x64/$name.app/Contents/Info.plist"
     fi
 }
 
 
 
-create_app -n "Pluralsight Flow" -u http://yo/flowdemo -i pluralsight.png -d "google.com|okta.com|corp-apps.aws.oath.cloud"
+#create_app -n "Pluralsight Flow" -u http://yo/flowdemo -i pluralsight.png -d "google.com|okta.com|corp-apps.aws.oath.cloud"
 create_app -n Evernote -u https://www.evernote.com/ -i evernote.png -d evernote.com
 create_app -n "Google Mail" -u https://mail.google.com/ -i gmail.png -d google.com
 create_app -n "Google Calendar" -u https://calendar.google.com/ -i google-calendar.png -d google.com

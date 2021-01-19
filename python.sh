@@ -10,8 +10,10 @@
 # Python Code Quality: Tools & Best Practices:
 # https://realpython.com/python-code-quality/
 
-source functions.sh
+source globals.sh
 
+echo "Not installing python yet"
+function this_needs_work {
 pkg_install brew python
 python3 -m pip install --upgrade pip
 
@@ -45,3 +47,4 @@ update_profile 'export PIP_REQUIRE_VIRTUALENV=true'
 source ~/.bash_profile
 poetry config virtualenvs.in-project true
 python -c "import this"
+}
