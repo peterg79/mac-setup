@@ -6,8 +6,6 @@ source globals.sh
 # Bitwarden would be a good alternative, after this feature:
 # https://community.bitwarden.com/t/add-more-pre-defined-item-types/228
 brew tap homebrew/cask-versions
-
-exit 0
 pkg_install brew 1password6 --cask
 
 # Just hold the ⌘-Key a bit longer to get a list of all active short cuts of the current application
