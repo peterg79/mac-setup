@@ -5,7 +5,9 @@ source globals.sh
 # Password manager: 1Password (version 6 before the subscription model)
 # Bitwarden would be a good alternative, after this feature:
 # https://community.bitwarden.com/t/add-more-pre-defined-item-types/228
-pkg_install brew homebrew/cask-versions tap
+brew tap homebrew/cask-versions
+
+exit 0
 pkg_install brew 1password6 --cask
 
 # Just hold the ⌘-Key a bit longer to get a list of all active short cuts of the current application
@@ -60,6 +62,10 @@ pkg_install brew kindle --cask
 pkg_install brew omnidisksweeper --cask
 pkg_install brew coconutbattery --cask
 pkg_install brew fanny --cask
+
+# Virtualization
+pkg_install brew docker --cask
+pkg_install brew vmware-fusion --cask
 
 # Apps from the App Store
 # find ID using this command: mas search 'Evernote Web Clipper'

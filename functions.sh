@@ -29,14 +29,12 @@ function update_profile {
 
 # example uses:
 # pkg_install brew git
-# pkg_install brew homebrew/cask-fonts tap
 # pkg_install brew wine-stable --cask
 # pkg_install npm nativefier -g
 function pkg_install {
-     pkgmanager=$1
-     pkg=$(echo $2 | tr '[:upper:]' '[:lower:]')
-     install_options=$3
-     [[ $pkgmanager = brew ]] && [[ -e /usr/local/Cellar/$pkg ]] && return
-     [[ $pkgmanager = brew ]] && [[ $install_options = tap ]] && [[ -e /usr/local/Homebrew/Library/Taps/homebrew/${pkg/\//-} ]] && return
-     $pkgmanager list $install_options $pkg &>/dev/null|| $pkgmanager install $install_options $pkg
- }
+    pkgmanager=$1
+    pkg=$(echo $2 | tr '[:upper:]' '[:lower:]')
+    install_options=$3
+    [[ $pkgmanager = brew ]] && [[ -e /usr/local/Cellar/$pkg ]] && return
+    $pkgmanager list $install_options $pkg &>/dev/null|| $pkgmanager install $install_options $pkg
+}

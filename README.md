@@ -19,6 +19,7 @@
         `USERNAME    ALL= NOPASSWD: /opt/cisco/anyconnect/bin/vpn`
 
 ## Do manual installations / adjustments
+1. enable file sharing: System Preferences / Sharing / Remote Login
 1. install [Live Home 3d](http://belightsoft.s3.amazonaws.com/basket/LiveHome3DPro.dmg)
 1. https://www.usa.canon.com/internet/portal/us/home/support/details/printers/color-laser/color-imageclass-mf644cdw/?cm_sp=CSO-_-PFListing-_-MF644Cdw?tab=drivers_downloads
 

@@ -16,7 +16,7 @@ pkg_install brew node
 pkg_install npm vmd -g
 
 # best font for coding: https://fonts.google.com/specimen/Source+Code+Pro
-pkg_install brew homebrew/cask-fonts tap
+brew tap homebrew/cask-fonts
 pkg_install brew font-source-code-pro --cask
 
 # console tools
