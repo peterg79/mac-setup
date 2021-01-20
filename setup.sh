@@ -2,6 +2,7 @@
 
 
 source macos.sh
+source finder.sh
 source shell.sh
 source dotfiles.sh --force
 source nativefier.sh

@@ -29,6 +29,31 @@
 1. https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk?hl=en
 1. cp ~/Library/Application\ Support/Google/Chrome/NativeMessagingHosts/2bua8c4s2c.com.agilebits.1password.json ~/Library/Application\ Support/Vivaldi/NativeMessagingHosts
 
+## Order dock icons
+`defaults read com.apple.dock persistent-apps | grep file-label | gawk -F= '{print $2}' | sed -e 's,^[ "]*,,g' |  sed -e 's,[ ";]*$,,g' | gawk '{print NR ". " $0}'`
+
+1. Cisco AnyConnect Secure Mobility Client
+2. Google Chrome Canary
+3. Google Chrome
+4. Vivaldi
+5. Google Mail
+6. Kiwi for Gmail Lite
+7. Mail
+8. Calendar
+9. Google Calendar
+10. System Preferences
+11. Messages
+12. iTerm
+13. 1Password 6
+14. Slack
+15. Preview
+16. Nest
+17. Visual Studio Code
+18. Reminders
+19. Photos
+20. Notes
+21. KidsNote
+
 ## references
 * https://github.com/necolas/dotfiles
 * https://sourabhbajaj.com/mac-setup/

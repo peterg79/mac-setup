@@ -215,6 +215,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the Screenshots directory
+mkdir -p "${HOME}/Screenshots"
 defaults write com.apple.screencapture location -string "${HOME}/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
@@ -352,6 +353,9 @@ sudo chflags nohidden /Volumes
 
 # move dock to the left
 defaults write com.apple.dock orientation left
+
+# enable magnification
+defaults write com.apple.dock magnification -int 1
 
 # Enable highlight hover effect for the grid view of a stack (Dock)
 defaults write com.apple.dock mouse-over-hilite-stack -bool true
