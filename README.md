@@ -10,9 +10,10 @@
 1. `git config push.default current`
 1. `git config --global user.name "Your Name"`
 1. `git config --global user.email you@example.com`
+1. install ssh keys to ~/.ssh
 
 ## Passwordless VPN
-1. Install AnyCOnnect VPN: /Library/Application Support/JAMF/Downloads/Cisco_AnyConnect_4.9.04043.pkg.unzip/Cisco_AnyConnect_4.9.04043.pkg
+1. Install AnyConnect VPN: /Library/Application Support/JAMF/Downloads/Cisco_AnyConnect_4.9.04043.pkg.unzip/Cisco_AnyConnect_4.9.04043.pkg
 1. create a file `~/.cisco-auth` containing username and password in separate lines.
 1. execute `chmod 0600 ~/.cisco-auth`
 1. create passwordless sudo for the vpn executable `/etc/sudoers.d/vpn`:

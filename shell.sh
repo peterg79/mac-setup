@@ -29,8 +29,6 @@ update_rc '[[ -r ~/.mac-prompt.bash ]] && . ~/.mac-prompt.bash'
 update_zshrc "source /usr/local/etc/bash_completion.d/git-prompt.sh"
 update_zshrc "setopt PROMPT_SUBST ; PS1='[%n@%m %c\$(__git_ps1 \" (%s)\")]\\$ '"
 
-source ~/.bash_profile
-
 #update_profile '[[ $JENV_LOADED ]] || eval "$(jenv init -)"'
 
 curl -L https://iterm2.com/shell_integration/install_shell_integration_and_utilities.sh | bash
@@ -40,3 +38,5 @@ if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
   echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells
   chsh -s "${BREW_PREFIX}/bin/bash"
 fi
+
+source ~/.bash_profile

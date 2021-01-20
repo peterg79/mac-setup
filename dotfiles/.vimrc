@@ -3,6 +3,17 @@ set background=dark
 colorscheme solarized
 let g:solarized_termtrans=1
 
+" Enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" Set to auto read when a file is changed from the outside
+set autoread
+
+" :W sudo saves the file
+" (useful for handling the permission-denied error)
+command W w !sudo tee % > /dev/null
+
 " Make Vim more useful
 set nocompatible
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
@@ -24,6 +35,8 @@ let mapleader=","
 " Don’t add empty newlines at the end of files
 set binary
 set noeol
+" Sets how many lines of history VIM has to remember
+set history=500
 " Centralize backups, swapfiles and undo history
 set backupdir=~/.vim/backups
 set directory=~/.vim/swaps
@@ -46,8 +59,18 @@ set backupskip=/tmp/*,/private/tmp/*
 syntax on
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
-set tabstop=2
+" Make tabs as wide as four spaces
+set shiftwidth=4
+set tabstop=4
+" Expand tabs to spaces
+set expandtab
+" Be smart when using tabs ;)
+set smarttab
+
+set autoindent "Auto indent
+set smartindent "Smart indent
+set wrap "Wrap lines
+
 " Show “invisible” characters
 "set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
 "set list
@@ -80,8 +103,13 @@ set showcmd
 "	set relativenumber
 "	au BufReadPost * set relativenumber
 "endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+" Start scrolling lines before the horizontal window border
+set scrolloff=7
+
+" jump to the last position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
