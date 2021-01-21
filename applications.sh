@@ -27,6 +27,7 @@ pkg_install brew transmission --cask
 pkg_install brew google-chrome --cask
 pkg_install brew google-chrome-canary --cask
 pkg_install brew vivaldi --cask
+pkg_install brew chromium --cask
 
 # Offline browsers
 pkg_install brew sitesucker-pro --cask
