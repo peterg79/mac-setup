@@ -5,9 +5,20 @@ source globals.sh
 # A simple CLI tool for Finder sidebar modification.
 pkg_install brew mysides --cask
 
-mysides remove ${USER} file://${HOME}
-mysides add ${USER} file://${HOME}
-mkdir -p ${HOME}/Screenshots
-mysides remove Screenshots file://${HOME}/Screenshots
-mysides add Screenshots file://${HOME}/Screenshots
+function add_sidebar() {
+    link_name=$1
+    target=$2
+    if [ ! -e $target ]; then
+        mkdir -p $target
+    fi
+    mysides remove "$link_name" "$target"
+    mysides add "$link_name" "$target"
+}
 
+add_sidebar ${USER} file://${HOME}
+add_sidebar Applications file:///Applications
+add_sidebar "My Applications" file://${HOME}/Applications
+
+for dir in Desktop Downloads Documents Nextcloud Dropbox Screenshots Movies Music Pictures; do
+    add_sidebar $dir file://${HOME}/$dir
+done
