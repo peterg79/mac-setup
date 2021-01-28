@@ -62,6 +62,9 @@ pkg_install brew omnidisksweeper --cask
 pkg_install brew coconutbattery --cask
 pkg_install brew fanny --cask
 
+# Imaging
+pkg_install brew balenaetcher --cask
+
 # Virtualization
 pkg_install brew docker --cask
 pkg_install brew vmware-fusion --cask
