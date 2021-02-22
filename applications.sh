@@ -15,7 +15,7 @@ pkg_install brew cheatsheet --cask
 pkg_install brew dropbox --cask
 pkg_install brew nextcloud --cask
 pkg_install brew tresorit --cask
-#pkg_install brew box-drive --cask
+pkg_install brew google-backup-and-sync --cask
 
 # SuperDuper is the most advanced, yet easy to use disk copying program available for macOS.
 pkg_install brew superduper --cask
@@ -46,9 +46,6 @@ pkg_install brew freac --cask
 pkg_install brew skype --cask
 pkg_install brew signal --cask
 pkg_install brew zoom --cask
-
-# Database client
-#pkg_install brew valentina-studio --cask
 
 # Games
 pkg_install brew steam --cask
@@ -117,5 +114,7 @@ pkg_install brew carbon-copy-cloner --cask
 pkg_install brew transmission --cask
 pkg_install brew valentina-studio --cask
 pkg_install brew openwebstart --cask
-pkg_install brew google-backup-and-sync --cask
+pkg_install brew box-drive --cask
+# Database client
+#pkg_install brew valentina-studio --cask
 }

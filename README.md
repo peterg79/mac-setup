@@ -34,8 +34,11 @@ Host *
 ## Do manual installations / adjustments
 1. enable file sharing: System Preferences / Sharing / Remote Login
 1. install [Live Home 3d](http://belightsoft.s3.amazonaws.com/basket/LiveHome3DPro.dmg)
+1. install [IVMS-4200](https://us.hikvision.com/en/products/logiciel/ivms-4200-series/free-client-software-hikvision-devices-ivms-4200-macos)
 1. https://www.usa.canon.com/internet/portal/us/home/support/details/printers/color-laser/color-imageclass-mf644cdw/?cm_sp=CSO-_-PFListing-_-MF644Cdw?tab=drivers_downloads
 1. Add Quick View to Finder toolbar
+1. Disable duplex printing by default: `sudo cupsctl WebInterface=yes` then go to http://localhost:631
+1. Inspect Element in Safari: click on Safari -> Preferences. Click on Advanced. Check the Show Develop menu in menu bar checkbox.
 
 ## Browser extensions (chrome, vivaldi)
 1. https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en
