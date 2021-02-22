@@ -1,0 +1,4 @@
+#!/bin/bash
+
+exec sudo /opt/cisco/anyconnect/bin/vpn disconnect
+
