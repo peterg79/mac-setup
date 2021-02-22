@@ -19,6 +19,7 @@ add_sidebar ${USER} file://${HOME}
 add_sidebar Applications file:///Applications
 add_sidebar "My Applications" file://${HOME}/Applications
 
+# add Tresors Google Drive
 for dir in Desktop Downloads Documents Nextcloud Dropbox Screenshots Movies Music Pictures; do
     add_sidebar $dir file://${HOME}/$dir
 done
