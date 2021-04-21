@@ -8,6 +8,9 @@ source globals.sh
 brew tap homebrew/cask-versions
 pkg_install brew 1password6 --cask
 
+# Unlocking your Mac with your fingerprint, wrist, and your face
+pkg_install brew unlox --cask
+
 # Just hold the ⌘-Key a bit longer to get a list of all active short cuts of the current application
 pkg_install brew cheatsheet --cask
 
@@ -65,6 +68,10 @@ pkg_install brew balenaetcher --cask
 # Virtualization
 pkg_install brew docker --cask
 pkg_install brew vmware-fusion --cask
+
+# Benchmark
+pkg_install brew luxmark
+pkg_install brew geekbench
 
 # Apps from the App Store
 # find ID using this command: mas search 'Evernote Web Clipper'
