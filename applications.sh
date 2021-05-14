@@ -10,6 +10,7 @@ pkg_install brew 1password6 --cask
 
 # Unlocking your Mac with your fingerprint, wrist, and your face
 pkg_install brew unlox --cask
+pkg_install brew bleunlock
 
 # Just hold the ⌘-Key a bit longer to get a list of all active short cuts of the current application
 pkg_install brew cheatsheet --cask
