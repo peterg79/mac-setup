@@ -39,6 +39,7 @@ Host *
 1. Disable duplex printing by default: `sudo cupsctl WebInterface=yes` then go to http://localhost:631
 1. Inspect Element in Safari: click on Safari -> Preferences. Click on Advanced. Check the Show Develop menu in menu bar checkbox.
 1. Enable file sharing: System Preferences / Sharing / Remote Login
+1. Install [HWMonitorSMC2](https://github.com/CloverHackyColor/HWMonitorSMC2)
 
 ## Browser extensions (chrome, vivaldi)
 1. [uBlock](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en)
