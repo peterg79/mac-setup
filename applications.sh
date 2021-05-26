@@ -35,7 +35,7 @@ pkg_install brew chromium --cask
 
 # Offline browsers
 pkg_install brew sitesucker-pro --cask
-pkg_install brew itubedownloader --cask
+pkg_install brew youtube-dl
 
 # Text editors
 pkg_install brew visual-studio-code --cask
