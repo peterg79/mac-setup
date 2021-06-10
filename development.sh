@@ -41,3 +41,5 @@ pkg_install brew maven
 pkg_install brew pycharm --cask
 pkg_install brew intellij-idea --cask
 
+# Console utilities
+pkg_install brew wget
