@@ -5,6 +5,9 @@
 1. Make changes to taylor it to your needs
 1. run `./setup.sh` to get everything installed
 
+## Validation
+1. Signatures in Preview
+
 ## User specific configuration
 
 1. `git config push.default current`
@@ -50,26 +53,25 @@ Host *
 `defaults read com.apple.dock persistent-apps | grep file-label | gawk -F= '{print $2}' | sed -e 's,^[ "]*,,g' |  sed -e 's,[ ";]*$,,g' | gawk '{print NR ". " $0}'`
 
 1. Cisco AnyConnect Secure Mobility Client
-2. Google Chrome Canary
-3. Google Chrome
-4. Vivaldi
-5. Google Mail
-6. Kiwi for Gmail Lite
-7. Mail
-8. Calendar
-9. Google Calendar
-10. System Preferences
-11. Messages
-12. iTerm
-13. 1Password 6
-14. Slack
-15. Preview
-16. Nest
-17. Visual Studio Code
-18. Reminders
-19. Photos
-20. Notes
-21. KidsNote
+1. Google Chrome Canary
+1. Google Chrome
+1. Vivaldi
+1. Google Mail
+1. Mail
+1. Calendar
+1. Google Calendar
+1. System Preferences
+1. Messages
+1. iTerm
+1. 1Password 6
+1. Slack
+1. Preview
+1. Nest
+1. Visual Studio Code
+1. Reminders
+1. Photos
+1. Notes
+1. KidsNote
 
 ## references
 * https://github.com/necolas/dotfiles
