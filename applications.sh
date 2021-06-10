@@ -94,8 +94,6 @@ mas install 407963104
 mas install 496465537
 # Facebook Messenger
 mas install 1480068668
-# Kiwi for GMail lite
-mas install 1006184923
 
 function attic {
 sudo cp vpn-connect /usr/local/bin/
