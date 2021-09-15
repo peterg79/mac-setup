@@ -40,4 +40,7 @@ pkg_install brew maven
 # IDE
 pkg_install brew pycharm --cask
 pkg_install brew intellij-idea --cask
+pkg_install brew arduino --cask
 
+# Network
+pkg_install brew charles --cask
