@@ -18,9 +18,12 @@ pkg_install npm vmd -g
 # best font for coding: https://fonts.google.com/specimen/Source+Code+Pro
 brew tap homebrew/cask-fonts
 pkg_install brew font-source-code-pro --cask
+# Don't forget to update font settings in iTerm Preferences/Profiles/Text/Font
 
 # console tools
 pkg_install brew gawk
+pkg_install brew coreutils
+pkg_install brew pstree
 
 # java versions
 pkg_install brew adoptopenjdk8 --cask
