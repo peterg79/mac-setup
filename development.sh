@@ -44,3 +44,6 @@ pkg_install brew arduino --cask
 
 # Network
 pkg_install brew charles --cask
+
+# Console utilities
+pkg_install brew wget
