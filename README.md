@@ -49,6 +49,7 @@ Host *
 1. [1Password](https://chrome.google.com/webstore/detail/1password-extension-deskt/aomjjhallfgjeglblehebfpbcfeobpgk?hl=en)
 1. cp ~/Library/Application\ Support/Google/Chrome/NativeMessagingHosts/2bua8c4s2c.com.agilebits.1password.json ~/Library/Application\ Support/Vivaldi/NativeMessagingHosts
 1. [Evernote Web Clipper](https://chrome.google.com/webstore/detail/evernote-web-clipper/pioclpoplcdbaefihamjohnefbikjilc?hl=en)
+1. Add bookmarklet from https://github.com/jswanner/DontFuckWithPaste
 
 ## Order dock icons
 `defaults read com.apple.dock persistent-apps | grep file-label | gawk -F= '{print $2}' | sed -e 's,^[ "]*,,g' |  sed -e 's,[ ";]*$,,g' | gawk '{print NR ". " $0}'`
