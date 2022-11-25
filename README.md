@@ -43,6 +43,7 @@ Host *
 1. Inspect Element in Safari: click on Safari -> Preferences. Click on Advanced. Check the Show Develop menu in menu bar checkbox.
 1. Enable file sharing: System Preferences / Sharing / Remote Login
 1. Install [HWMonitorSMC2](https://github.com/CloverHackyColor/HWMonitorSMC2)
+1. configure iTerm & vim: [configure iterm2 and vim like a pro](https://medium.com/@jeantimex/how-to-configure-iterm2-and-vim-like-a-pro-on-macos-e303d25d5b5c)
 
 ## Browser extensions (chrome, vivaldi)
 1. [uBlock](https://chrome.google.com/webstore/detail/ublock-origin/cjpalhdlnbpafiamejdnhcphjbkeiagm/related?hl=en)
